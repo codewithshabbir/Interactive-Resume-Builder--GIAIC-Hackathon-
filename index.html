@@ -3,100 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milestone 1</title>
+    <title>Dynamic Resume Builder</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <div class="form-wrapper">
-        <h1>Static Resume Builder</h1>
-        <form action="/action_page.php" method="POST">
+        <h1>Dynamic Resume Builder</h1>
+        <form id="resumeForm" method="post">
             <!-- Personal Information Section -->
             <fieldset>
                 <legend>Personal Information</legend>
                 
                 <div class="form-group">
                     <label for="fname">First Name:</label>
-                    <input type="text" id="fname" name="fname" required>
+                    <input type="text" id="fname" name="fname" placeholder="John" required>
+                    <div id="fnameError" class="error-message" style="display:none;">First name is required.</div>
                 </div>
-    
+        
                 <div class="form-group">
                     <label for="lname">Last Name:</label>
-                    <input type="text" id="lname" name="lname" required>
+                    <input type="text" id="lname" name="lname" placeholder="Doe" required>
+                    <div id="lnameError" class="error-message" style="display:none;">Last name is required.</div>
                 </div>
-    
+        
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                    <div id="emailError" class="error-message" style="display:none;">A valid email is required.</div>
                 </div>
-    
+        
                 <div class="form-group">
                     <label for="number">Phone Number:</label>
                     <input type="tel" id="number" name="number" pattern="03[0-9]{2}-[0-9]{7}" placeholder="03XX-XXXXXXX" required>
+                    <div id="numberError" class="error-message" style="display:none;">A valid phone number is required.</div>
                 </div>
             </fieldset>
-    
+        
             <!-- Education Section -->
             <fieldset>
                 <legend>Education</legend>
-    
+        
                 <div class="form-group">
                     <label for="degree">Degree:</label>
-                    <input type="text" id="degree" name="degree" required>
+                    <input type="text" id="degree" name="degree" placeholder="Bachelor's in Computer Science" required>
+                    <div id="degreeError" class="error-message" style="display:none;">Degree is required.</div>
                 </div>
-    
+        
                 <div class="form-group">
                     <label for="institute">Institute:</label>
-                    <input type="text" id="institute" name="institute" required>
+                    <input type="text" id="institute" name="institute" placeholder="University Name" required>
+                    <div id="instituteError" class="error-message" style="display:none;">Institute is required.</div>
                 </div>
-    
+        
                 <div class="form-group">
                     <label for="graduation-year">Year of Graduation:</label>
                     <input type="date" id="graduation-year" name="graduation-year" required>
+                    <div id="graduationYearError" class="error-message" style="display:none;">Graduation year is required.</div>
                 </div>
             </fieldset>
-            
-            <input id="showMore" type="button" value="Show More">
-
-            <div id="showFullForm">    
+        
+            <div class="showmore">
+                <input id="showMore" type="button" value="Show More">
+            </div>
+        
+            <div id="showFullForm" style="display: none;">
                 <!-- Skills Section -->
                 <fieldset>
                     <legend>Skills</legend>
         
                     <div class="form-group">
                         <label for="skills">List your skills:</label>
-                        <textarea id="skills" name="skills" rows="4" cols="50" required></textarea>
+                        <textarea id="skills" name="skills" rows="4" cols="50" placeholder="e.g., HTML, CSS, JavaScript" required></textarea>
+                        <div id="skillsError" class="error-message" style="display:none;">Skills are required.</div>
                     </div>
-                </fieldset>    
+                </fieldset>
+        
                 <!-- Work Experience Section -->
                 <fieldset>
                     <legend>Work Experience</legend>
         
                     <div class="form-group">
                         <label for="job-title">Job Title:</label>
-                        <input type="text" id="job-title" name="job-title" required>
+                        <input type="text" id="job-title" name="job-title" placeholder="Software Developer" required>
+                        <div id="jobTitleError" class="error-message" style="display:none;">Job title is required.</div>
                     </div>
         
                     <div class="form-group">
                         <label for="company-name">Company Name:</label>
-                        <input type="text" id="company-name" name="company-name" required>
+                        <input type="text" id="company-name" name="company-name" placeholder="Company Inc." required>
+                        <div id="companyNameError" class="error-message" style="display:none;">Company name is required.</div>
                     </div>
         
                     <div class="form-group">
                         <label for="years-experience">Years of Experience:</label>
-                        <input type="date" id="years-experience" name="years-experience" required>
+                        <input type="text" id="years-experience" name="years-experience" pattern="\d+" title="Please enter a valid number" placeholder="e.g., 3" required>
+                        <div id="yearsExperienceError" class="error-message" style="display:none;">Years of experience is required.</div>
                     </div>
         
                     <div class="form-group">
                         <label for="responsibilities">Responsibilities:</label>
-                        <textarea id="responsibilities" name="responsibilities" rows="4" cols="50" required></textarea>
+                        <textarea id="responsibilities" name="responsibilities" rows="4" cols="50" placeholder="Describe your responsibilities here" required></textarea>
+                        <div id="responsibilitiesError" class="error-message" style="display:none;">Responsibilities are required.</div>
                     </div>
                 </fieldset>
             </div>
+        
             <div class="form-group">
-                <input type="submit" disabled="disabled" id="submitButton" value="Submit">
+                <input type="button" disabled="disabled" id="submitButton" value="Generate Resume">
             </div>
-        </form>
+        </form>        
+        
     </div>
+
+    <div class="resume-output">
+        <div id="resumeContent" class="resume-container">
+            
+        </div>
+    </div>
+
     <script src="./assets/js/main.js"></script>
 </body>
 </html>

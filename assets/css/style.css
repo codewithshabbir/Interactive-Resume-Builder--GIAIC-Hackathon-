@@ -3,7 +3,8 @@ body {
     background-color: #ccc;
 }
 
-.form-wrapper {
+.form-wrapper,
+.resume-output {
     background-color: white;
     width: 100%;
     padding: 30px;
@@ -12,7 +13,7 @@ body {
     border-radius: 25px;
 }
 
-.form-wrapper h1 {
+.form-wrapper h1, .resume-output > h2 {
     text-align: center;
 }
 
@@ -50,7 +51,7 @@ input, textarea {
     border-radius: 4px;
 }
 
-input[type="submit"] {
+input[type="button"] {
     width: auto;
     background-color: #4CAF50;
     color: white;
@@ -60,17 +61,21 @@ input[type="submit"] {
     border-radius: 4px;
 }
 
-input[type="submit"]:hover {
+input[type="button"]:hover {
     background-color: #45a049;
 }
 
 input[disabled="disabled"], input[disabled="disabled"]:hover {
     background-color: #ccc;
-    cursor:not-allowed;
+    cursor: not-allowed;
 }
 
 #showFullForm {
     display: none;
+}
+
+.showmore {
+    text-align: center;
 }
 
 #showMore {
@@ -82,4 +87,105 @@ input[disabled="disabled"], input[disabled="disabled"]:hover {
 
 #showMore:hover {
     background-color: #0056b3;
+}
+
+.resume-output {
+    display: none;
+    margin-top: 40px;   
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resume-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.resume-header h1 {
+    font-size: 36px;
+    color: #007bff;
+    margin: 0;
+}
+
+.resume-section {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.resume-section h2 {
+    font-size: 28px;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.resume-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.resume-info div {
+    font-size: 16px;
+    color: #555;
+}
+
+.resume-info b {
+    color: #333;
+    font-weight: bold;
+}
+
+.resume-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.resume-footer button {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.resume-footer button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .resume-header h1 {
+        font-size: 28px;
+    }
+
+    .resume-footer button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .resume-section h2 {
+        font-size: 24px;
+    }
+
+    .resume-info div {
+        font-size: 14px;
+    }
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-bottom: 0.5em;
 }
